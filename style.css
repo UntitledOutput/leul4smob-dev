@@ -48,25 +48,48 @@ a {
 }
 
 
+
 /* carousel styling */
+
+.header-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .cul {
   width: 100vw;
-  height: 300px;
-  padding: 20px;
+  margin: 0;
+
   display: flex;
-  gap: 4vw;
+
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  position: relative; /* Required for positioning child elements */
+  scrollbar-width: none;
 }
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  /* Add styling for buttons */
+}
+
+.prev-button { left: 2.5%; }
+.next-button { right: 2.5%; }
 
 .cli {
   list-style-type: none;
   background-color: #eeeeee;
   border: 1px solid #dddddd;
-  padding: 20px;
+
 
   flex: 0 0 100%;
   scroll-snap-align: center;
+  scrollbar-width: none;
 }
 
 .cli:nth-child(even) {
