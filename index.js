@@ -1,3 +1,10 @@
+ // use a script tag or an external JS file
+ document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollToPlugin,TextPlugin)
+  ScrollToPlugin.config({ autoKill: true })
+  // gsap code here!
+ });
+ 
 
 const slidesWrapper = document.querySelector('.top-carousel');
 const slides = slidesWrapper.children;
@@ -6,17 +13,40 @@ const nextButton = document.querySelector('.next-button');
 let currentSlideIndex = 0;
 const totalSlides = slides.length;
 
-function updateCarousel() {
-    console.log(currentSlideIndex)
-    slidesWrapper.scrollBy(500,0)
+slidesWrapper.insertBefore(slides[0].cloneNode(true),slides[totalSlides-1].nextSibling)
+slidesWrapper.insertBefore(slides[totalSlides-1].cloneNode(true),slides[0])
+
+slidesWrapper.scrollBy(slides[0].scrollWidth,0)
+
+for (let i = 0; i < slidesWrapper.children.length; i++) {
+  const element = slidesWrapper.children[i];
+  element.id = "TopCarousel_"+i
 }
 
+function postCarousel() {
+
+    if (currentSlideIndex >= totalSlides) {
+      slidesWrapper.scrollTo(slides[0].scrollWidth, 0)
+      currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+      slidesWrapper.scrollTo(slides[0].scrollWidth*totalSlides, 0)
+      currentSlideIndex = totalSlides-1;
+    } 
+}
+
+function updateCarousel(direction) {
+
+    console.log(direction)
+    console.log(currentSlideIndex)
+    console.log(slidesWrapper.children[currentSlideIndex+direction+1])
+    gsap.to(slidesWrapper, { duration: 0.25, scrollTo: {x:"#"+slidesWrapper.children[currentSlideIndex+direction+1].id,y:0, autoKill: true}, onAutoKill: postCarousel });
+
+    currentSlideIndex += direction;}
+
 prevButton.addEventListener('click', () => {
-  currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
-  updateCarousel();
+  updateCarousel(-1);
 });
 
 nextButton.addEventListener('click', () => {
-  currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-  updateCarousel();
+  updateCarousel(1);
 });
