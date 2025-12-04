@@ -68,6 +68,15 @@ a {
   position: relative; /* Required for positioning child elements */
 }
 
+.cul {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.cul-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
 .prev-button, .next-button {
   position: absolute;
   top: 50%;
@@ -89,10 +98,6 @@ a {
   flex: 0 0 100%;
   scroll-snap-align: center;
   scrollbar-width: none;
-}
-
-.cli:nth-child(even) {
-  background-color: cyan;
 }
 
 .welcome-section {
