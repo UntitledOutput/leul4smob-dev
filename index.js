@@ -14,6 +14,19 @@ let currentSlideIndex = 0;
 const totalSlides = slides.length;
 let isScrollingSlide = false;
 
+for (let i = 0; i < slides.length; i++) {
+  const element = slides[i];
+
+  const img = element.querySelector("#center-img")
+  if (img) {
+    console.log(img)
+    const imageSrc = img.src;
+
+    // Set the background-image style property
+    element.style.backgroundImage = `url('${imageSrc}')`;
+  }
+}
+
 slidesWrapper.insertBefore(slides[0].cloneNode(true),slides[totalSlides-1].nextSibling)
 slidesWrapper.insertBefore(slides[totalSlides-1].cloneNode(true),slides[0])
 

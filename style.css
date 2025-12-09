@@ -18,7 +18,6 @@ html, body {
 
 body {
     display: block;
-    max-width:75em;
     margin-left: auto;
     margin-right: auto;
     
@@ -94,6 +93,7 @@ a {
   display: flex;
 
   overflow-x: scroll;
+  overflow-y:hidden;
   scroll-snap-type: x mandatory;
   position: relative; /* Required for positioning child elements */
 }
@@ -117,13 +117,27 @@ a {
   flex: 0 0 100%;
   scroll-snap-align: center;
   scrollbar-width: none;
+  position: relative;
+
+
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover; /* Scales the image to cover the entire background area */
+  background-position: center; /* Centers the image */
+  filter: blur(10px);
 }
 
 
-.cli img {
+.cli #center-img {
   object-fit: contain;
 
+  display: block;
+  max-height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1.0;
+
 }
+
 
 .welcome-section {
   background-color: gray;
