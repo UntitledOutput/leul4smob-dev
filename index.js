@@ -6,7 +6,7 @@
  });
  
 
-const slidesWrapper = document.querySelector('.top-carousel');
+const slidesWrapper = document.querySelector('#top-carousel');
 const slides = slidesWrapper.children;
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
