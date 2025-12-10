@@ -58,14 +58,15 @@
 
     <div class="header-carousel-container">
         <ul class="cul" id="top-carousel">
-            <li class="cli">
-                <img id="center-img" src="res/169_preview1.png">                   
-            </li>
-            <li class="cli"> 
-                Carousel test 2
-            </li>
-            <li class="cli"> 
-                Carousel test 3
+            <li class="cli" id="carousel-template">         
+                
+                <div id="main">
+                    <img id="center-img" src="res/169_preview1.png">
+                    <div class="side-header-text">
+                        <h1 id="header-title">Title</h1>
+                        <p id="header-desc">Sample Text</p>
+                    </div>
+                </div>
             </li>
         </ul>
         <div class="carousel-btns">
@@ -83,6 +84,9 @@
             </button>
         </div>
     </div>
+
+    <script src="loader.js"></script>
+
 
     <div class="welcome-section">
         <div class="welcome-content">

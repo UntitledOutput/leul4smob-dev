@@ -44,6 +44,7 @@ a {
 .topbar-div {
   position: sticky;
   top: 0;
+  z-index: 9999;
 }
 
 
@@ -82,12 +83,12 @@ a {
   position: relative;
   width: 100%;
   overflow: hidden;
-  max-height: 50vh;
+  max-height: 75vh;
 }
 
 .cul {
 
-  max-height: 50vh;
+  max-height: 75vh;
   margin: 0;
 
   display: flex;
@@ -110,7 +111,7 @@ a {
 
 .cli {
   list-style-type: none;
-  background-color: #eeeeee;
+  background-color: #eeeeee00;
   border: 1px solid #dddddd;
   
 
@@ -118,26 +119,74 @@ a {
   scroll-snap-align: center;
   scrollbar-width: none;
   position: relative;
-
-
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-size: cover; /* Scales the image to cover the entire background area */
-  background-position: center; /* Centers the image */
-  filter: blur(10px);
 }
-
 
 .cli #center-img {
   object-fit: contain;
 
   display: block;
-  max-height: 50vh;
+  max-height: 75vh;
+  opacity: 1.0;
   margin-left: auto;
   margin-right: auto;
-  opacity: 1.0;
 
 }
 
+.cli #bg-img {
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+
+  object-fit: contain;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1.0;
+  filter: blur(4px);
+
+}
+
+
+.cli #main {
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width:auto;
+  height: 100%;
+
+
+}
+
+
+.side-header-text {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.604);
+  backdrop-filter: blur(10px);
+  width: 45%;
+  height: 90%;
+
+  margin-top: auto;
+  margin-bottom: auto;
+
+  right: 2em;
+
+  top: 2em;
+  bottom: 2em;
+
+  padding: 1em;
+}
+
+
+
+/* welcome section */
 
 .welcome-section {
   background-color: gray;
