@@ -20,7 +20,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+    background-color: #b11919;
 }
 
 .center {
@@ -41,30 +41,219 @@ a {
   font-weight: bold; /* Make text bold */
 }
 
+/*#region topbar*/
+
 .topbar-div {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b11919; /* or your preferred color */
+
+    position: sticky; /* or fixed if you want it to stay at top while scrolling */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+
+.top-bar-left ul,
+.top-bar-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    padding: 0.5em;
+    gap: 1em;
+}
+
+.top-bar-left {
+    padding-left: 1.5em;
+}
+
+.top-bar-right {
+    padding-right: 1.5em;
+
+}
+
+.top-bar-left li,
+.top-bar-right li {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.top-bar-left img {
+    height: 7em;
+    width: auto;
+    display: block;
+    opacity: 0;
+}
+
+
+.top-bar-right a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 1em;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-radius: 1em;
+}
+
+.top-bar-right a:hover {
+    background-color: #5a0b0b50;
+}
+
+.show-on-small {
+  display: none;
+}
+
+.nav-button svg {
+  width: 48px;
+  height: 48px;
+}
+
+.fullscreen-container {
+    width: 100vw;
+    height: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b11919;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* These make it overlay everything */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* very high z-index to ensure it's on top */
+    
+    /* Optional: prevent scrolling of content behind */
+    overflow-y: auto; /* allows scrolling within the overlay if needed */
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-container.open {
+  opacity: 1;
+  visibility: visible;
+  height: 100vh;
+}
+
+.list-wrapper {
+    width: 100%;
+
+    padding: 30px;
+    top: 0;
+    left: 0;
+    position:fixed;
+}
+
+.list-wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.list-wrapper li {
+    padding: 0.5em;
+    margin: 1em;
+    text-align: center;
+    font-weight:normal;
+    line-height: 2em;
+    font-size: 2em;
+
+    background-color: #02020223;
+    color: white;
+    border-radius: 1em;
+    transition: 
+      background-color 0.3s ease,
+      color 0.3s ease;
+    font-weight: bold;
 }
 
 
 
-/* carousel styling */
+.list-wrapper li:hover {
+  background-color: #00000044;
+  cursor: pointer;
+}
+
+.list-wrapper li:active {
+  background-color: #0000006c;
+}
+
+
+#logo-btn {
+  cursor: pointer;
+  background-image: url("res/sticker.png");
+  background-size: contain;
+  background-blend-mode:lighten;
+  transition: background-color 0.3s ease;
+  border-radius: 1em;
+}
+
+#logo-btn:hover {
+  background-color: #5a0b0b50 /* Blue tint */
+
+}
+
+/* Optional: Hide on small screens */
+@media (max-width: 900px) {
+    .hide-on-small {
+        display: none;
+    }
+
+    .show-on-small {
+        display: block;
+    }
+
+    .top-bar-left {
+        width: 100%;
+    }
+
+    .top-bar-right {
+      display: none;
+    }
+
+    .top-bar-left img {
+      height: 9em;
+    }
+
+    .top-bar-left ul {
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        justify-content: center
+    }
+
+
+}
+
+/*#endregion*/
+
+/*#region carousel*/
 
 .prev-button, .next-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: black;
+  color: rgba(255, 255, 255, 0.747);
   transition: color 0.1s 0ms;
+  mix-blend-mode:exclusion;
 
 
   /* Add styling for buttons */
 }
 
 .prev-button:hover, .next-button:hover {
-  color: white;
+  color: rgba(97, 97, 97, 0.418);
 }
 
 .prev-button:active, .next-button:active {
@@ -76,8 +265,8 @@ a {
   height: 48px;
 }
 
-.prev-button { left: 2.5%; }
-.next-button { right: 2.5%; }
+.prev-button { left: 0.5%; }
+.next-button { right: 0.5%; }
 
 .header-carousel-container {
   position: relative;
@@ -119,6 +308,7 @@ a {
   scroll-snap-align: center;
   scrollbar-width: none;
   position: relative;
+  border: 0;
 }
 
 .cli #center-img {
@@ -148,7 +338,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   opacity: 1.0;
-  filter: blur(4px);
+  filter: blur(4px) brightness(50%);
 
 }
 
@@ -168,32 +358,52 @@ a {
 
 .side-header-text {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.604);
+  background-color: #b11919c5;
   backdrop-filter: blur(10px);
+  border-radius: 0.5em;
   width: 45%;
   height: 90%;
 
   margin-top: auto;
   margin-bottom: auto;
 
-  right: 2em;
+  right: 3%;
 
   top: 2em;
   bottom: 2em;
 
-  padding: 1em;
+  padding: 1.5em;
+
+
+  overflow: hidden;       /* Hide overflow */
+  text-overflow: ellipsis; /* Add "..." */
 }
 
 
+.side-header-text h1,
+.side-header-text p {
+  color: white;
+}
 
-/* welcome section */
+.side-header-text h1 {
+  font-weight: bolder;
+  font-size: clamp(0.5em,4vw,3.5em);
+  border-bottom: 0.125em solid rgba(7, 7, 7, 0.329)
+}
+
+.side-header-text p {
+  font-size: clamp(0.5vw,2.5vw,2em);
+}
+
+/*#endregion*/
+
+/*#region welcome*/
 
 .welcome-section {
-  background-color: gray;
+  background-color: #ecca16;
   width: 100%;
-  height: 40%;
-
-  margin-top: 2em;
+  height: fit-content;
+  padding: 1em;
 }
 
 .welcome-content {
@@ -204,10 +414,23 @@ a {
 }
 
 .welcome-content div {
-  display: table-cell;
-  width: 50%;
+
+
   height: 100%;
   vertical-align: top;
+}
+
+@media screen and (max-width: 900px) {
+  .welcome-content div {
+      width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .welcome-content div {
+    display: table-cell;
+    width: 50%;
+  }
 }
 
 .welcome-content #welcome-left {
@@ -215,18 +438,118 @@ a {
   text-align: center;
 }
 
-.welcome-content div img {
+.welcome-content img {
   padding: 0 auto;
-  height: 100%;
+
+  margin-top: auto;
+  margin-bottom: auto;
+
   object-fit:cover;
+  border-radius: 0.5em;
 }
 
 .welcome-content div p {
-  color: white;
   text-align: justify;
+  color: white;
+  font-weight: bold;
 }
 .welcome-content div h1 {
   color: white;
   text-align: center;
   vertical-align: top;
+  font-weight: bolder;
 }
+
+/*#endregion*/
+
+/*#region footer*/
+
+.footer-section {
+  background-color: #4e0b0b;
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.footer-content {
+  display: table;
+  height: 100%;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 100%;
+}
+
+.footer-content div {
+  height: 100%;
+  vertical-align: left;
+  display: table-cell;
+  width: 50%;
+}
+
+
+
+.footer-content .footer-content-section {
+  padding: 2em;
+  text-align: center;
+}
+
+.footer-content .footer-content-section {
+  padding: 2em;
+  text-align: center;
+}
+
+.footer-content div p {
+  text-align: justify;
+  color: white;
+}
+
+.footer-content div {
+  color: white;
+}
+
+.footer-content div b
+ {
+  color: #ecca16;
+}
+
+.footer-content div b:hover
+ {
+  color: #caac14;
+}
+
+.footer-content div a
+ {
+  color: #ffffff;
+}
+
+.footer-content div a:hover
+ {
+  color: #acacac;
+}
+
+.footer-socials {
+  display: table;
+  width: 100%;
+}
+
+.footer-socials button {
+  width: 3em;
+  height: 3em;
+  display: table-cell;
+  float: left;
+}
+
+.footer-socials button img {
+  filter: invert(100%);
+
+  width: 75%;
+  height: 75%;
+
+  transition: filter 0.3s ease;
+}
+
+.footer-socials button img:hover {
+  filter: invert(75%);
+}
+
+/*#endregion*/

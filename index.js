@@ -8,24 +8,7 @@
 
  });
 
-function onResize() {
-    for (let i = 0; i < slides.length; i++) {
-      const element = slides[i];
 
-      const main = element.querySelector("#main")
-      if (main) {
-        const img = main.parentElement.querySelector("#center-img")
-
-        main.style.left = window.getComputedStyle(img).marginLeft
-        main.style.right = window.getComputedStyle(img).marginRight
-        main.style.width = window.getComputedStyle(img).width
-        main.style.height = window.getComputedStyle(img).height
-      }
-    }
-}
-
-
-window.addEventListener('resize', onResize);
 
 const slidesWrapper = document.querySelector('#top-carousel');
 const slides = slidesWrapper.children;
@@ -105,4 +88,52 @@ if (totalSlides == 1) {
   }
 }
 
-onResize()
+function onResize() {
+
+  for (let i = 0; i < slides.length; i++) {
+    const element = slides[i];
+
+
+    const main = element.querySelector("#main")
+    if (main) {
+      const img = main.parentElement.querySelector("#center-img")
+
+      if (window.innerWidth > 900) {
+        main.style.left = window.getComputedStyle(img).marginLeft
+        main.style.right = window.getComputedStyle(img).marginRight
+        main.style.width = window.getComputedStyle(img).width
+        main.style.height = window.getComputedStyle(img).height
+      } else {
+        main.style.left = 0;
+        main.style.right = 0
+        
+      }
+    } else {
+      console.log("no main")
+    }
+  }
+}
+
+
+window.addEventListener('resize', onResize);
+window.addEventListener('load', onResize);
+
+const fullscreen_wrapper = document.querySelector('.fullscreen-container');
+
+
+function logo_btn_click() {
+  if (window.innerWidth <= 900) {
+    fullscreen_wrapper.className = "fullscreen-container open"
+  } else {
+    window.location.href = "#"
+  }
+}
+
+function close_fullscreen() {
+  fullscreen_wrapper.className = "fullscreen-container"
+}
+
+function link(url) {
+  window.location.href = url
+}
+
