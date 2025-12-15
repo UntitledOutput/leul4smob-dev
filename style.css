@@ -359,7 +359,7 @@ a {
 .side-header-text {
   position: absolute;
   background-color: #b11919c5;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   border-radius: 0.5em;
   width: 45%;
   height: 90%;
