@@ -1,15 +1,17 @@
-fetch(`${window.location.origin}/navbar.html`)
+// At the top of your script
+const basePath = window.location.pathname.match(/^\/[^\/]+\//)?.[0] || '/';
+
+fetch(`${basePath}navbar.html`)
     .then(response => response.text())
     .then(html => {
       document.getElementById('navbar-container').outerHTML = html;
     })
 
-fetch(`${window.location.origin}/footer.html`)
+fetch(`${basePath}footer.html`)
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').outerHTML = html;
     })
-
 
 function logo_btn_click() {
   const fullscreen_wrapper = document.querySelector('.fullscreen-container');
