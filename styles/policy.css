@@ -1,0 +1,306 @@
+/*#region pillars */
+
+.pillar-section {
+  background-color: #b11919;
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.pillar-content {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1em; /* Space between items */
+  margin: 1em;
+}
+
+.pillar-content div {
+  text-align: center; /* Centers the object within its div */
+  cursor: pointer;
+}
+
+.pillar-content div h1 {
+    font-weight: bolder;
+    color: #ecca16;
+    margin-bottom: 0;
+    font-size: 10vh;
+    line-height: 0.75em;
+    font-family: serif;
+
+    transition: color 0.2s ease;
+}
+
+.pillar-content div:hover h1 {
+    color: #ffffff;
+}
+
+.pillar-content div:active h1 {
+    color: #ecca16;
+}
+
+
+.pillar-content div object {
+  width: 100%;
+  transition: filter 0.2s ease;
+  cursor: pointer;
+  pointer-events: none; /* Allows clicks to pass through to parent */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari, Chrome, Opera */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Standard syntax */
+}
+
+.pillar-content div:hover object {
+    filter:brightness(115%);
+}
+
+.pillar-content div:active object {
+    filter:brightness(95%);
+}
+
+/*#endregion*/
+
+
+/*#region policy*/
+
+.policy-section.red {
+  background-color: #b11919;
+}
+
+.policy-section.yellow {
+  background-color: #ecca16;
+}
+
+.policy-section {
+  width: 90%;
+  height: fit-content;
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.policy-content {
+  display: table;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.policy-content div {
+
+
+  height: 100%;
+  vertical-align: top;
+}
+
+.policy-content div p {
+  color: white;
+  font-weight: bold;
+  font-size: 3vw;
+}
+
+.policy-content div h1 {
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+}
+
+.policy-content div h2 {
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+  font-size: x-large;
+  border-bottom: 0.25vh solid white; 
+
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+/*#endregion*/
+
+/*#region categories*/
+
+.category-section {
+  width: 75%;
+  height: fit-content;
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%/3, 10rem), 1fr));
+  
+  gap: 1em;
+
+
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1em;
+}
+
+.category-content .category-box .button-container {
+  background-color: #ecc816b8;
+  padding: 0.5em;
+  cursor: pointer;
+  width: auto;
+
+  border: solid;
+  border-radius: 0.5em;
+  border-width: 0.25em;
+  border-color: #ecca16;
+
+  z-index: 3;
+
+  transition: 0.5s background-color ease;
+
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.category-content .category-box .button-container:hover {
+  background-color: #9f870cb8;
+}
+
+.category-content .category-box .button-container:active {
+  background-color: #ecca16;
+}
+
+.category-content .category-box .button-container i {
+  display: block; /* Required for margin: auto to work */
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 125%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.category-content .category-box h2 {
+  font-size: 100%;
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari, Chrome, Opera */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Standard syntax */
+
+  margin-bottom: 0;
+}
+
+/* 1. The inner div becomes the grid container */
+.category-content .category-box > .text-container {
+  display: grid;
+  grid-template-rows: 0fr; /* Start closed */
+  transition: grid-template-rows 0.5s ease;
+  
+  /* Reset these so they don't force the box open */
+  padding: 0;
+  border: none;
+  overflow: hidden;
+}
+
+/* 2. When the parent is open, expand the grid row */
+.category-content .category-box.open > .text-container {
+  grid-template-rows: 1fr;
+}
+
+/* 3. Put all styling (padding, background, border) on the content INSIDE the grid */
+.category-content .category-box .text-container > ul {
+  min-height: 0; /* Required for the grid row to collapse fully */
+  
+  /* Move your visual styles here */
+  background-color: #ecc816b8;
+  border: solid 0.25em #ecca16;
+  border-radius: 0.5em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
+  width: 80%;
+  color: white;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
+
+  padding: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  transition: 0.5s padding-top ease, 0.5s padding-bottom ease, 0.5s opacity ease;
+}
+
+.category-content .category-box.closed .text-container > ul {
+
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+
+.category-content .category-box .text-container ul {
+  margin-bottom: 0;
+}
+
+.category-content .category-box .text-container li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/*#endregion*/
+
+.info-section {
+  background-color: #b11919;
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.info-content {
+  display: flex;
+  height: 100%;
+  margin: 1em;
+}
+
+.info-content div {
+  background-color: #ecc816b8;
+  padding: 1em;
+  width: 100%;
+
+  border-radius: 1em;
+  border-width: 1em;
+  border: solid #ecca16;
+
+  color: white;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 900px) {
+  .category-section {
+    width: 100%;
+  }
+
+  .category-content {
+      grid-template-columns: auto;
+  }
+}

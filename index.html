@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Primary Meta Tags -->
-    <title>Leul Dawit for SMOB</title>
+    <title>Leul Dawit for SMOB - Welcome</title>
     <meta name="title" content="Leul Dawit for SMOB" />
     <meta name="description" content="Campaign soon.. 👀👀" />
 
@@ -29,133 +29,67 @@
 
     <!-- Meta Tags Generated with https://metatags.io -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-     
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6/dist/js/foundation.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        
     <link href="https://cdn.jsdelivr.net/npm/foundation-sites@6/dist/css/foundation.min.css" rel="stylesheet">
 
+    <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
 
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="styles/home.css">
 
 </head>
 <body>
     
+    <div id="navbar-container"></div>
 
 
-    <div class="topbar-div">
-        <div class="top-bar-left">
-            <ul>
-                <li class="menu-text" style="padding: 0;">
-                    <button id="logo-btn" onclick="logo_btn_click()"><img src="res/sticker.png"></button>
-                </li>
-            </ul>
+    <div class="video-section">
+        <div class="video-content">
+
+            <video
+                id="main-video"
+                class="video-js"
+            >
+                <source src="/res/videos/covervideo.mp4" type="video/mp4" />
+                <source src="/res/videos/covervideo.webm" type="video/webm" />
+            </video>
+
         </div>
-        <div class="top-bar-right">
-            <ul>
-                <li class="hide-on-small">
-                    <a href="#">Dummy Page 1</a>
-                </li>
-                <li class="hide-on-small">
-                    <a href="#">Dummy Page 2</a>
-                </li>
-                <li class="hide-on-small">
-                    <a href="#">Dummy Page 3</a>
-                </li>
-            </ul>
+    </div>
+    
+    <script src="/scripts/loader.js"></script>
+
+    <div class="logo-section">
+        <div class="logo-content">
+            <img src="/res/sticker.png">
         </div>
     </div>
 
 
-    <div class="fullscreen-container">
-        <div class="list-wrapper">
-            <ul>
-                <li onclick="close_fullscreen()">Close</li>
-                <li>Home</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="header-carousel-container">
-        <ul class="cul" id="top-carousel">
-            <li class="cli" id="carousel-template">         
-                
-                <div id="main">
-                    <img id="center-img" src="">
-                    <div class="side-header-text">
-                        <h1 id="header-title">Title</h1>
-                        <p id="header-desc">Sample Text</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="carousel-btns">
-            <button class="prev-button">
-                <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M13.729 5.575c1.304-1.074 3.27-.146 3.27 1.544v9.762c0 1.69-1.966 2.618-3.27 1.544l-5.927-4.881a2 2 0 0 1 0-3.088l5.927-4.88Z" clip-rule="evenodd"/>
-                </svg>
-            </button>
-               
-            <button class="next-button">
-                <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M10.271 5.575C8.967 4.501 7 5.43 7 7.12v9.762c0 1.69 1.967 2.618 3.271 1.544l5.927-4.881a2 2 0 0 0 0-3.088l-5.927-4.88Z" clip-rule="evenodd"/>
-                </svg>
-
-            </button>
-        </div>
-    </div>
-
-    <script src="loader.js"></script>
-
-
-    <div class="welcome-section">
-        <div class="welcome-content">
-            <div id="welcome-left">
+    <div class="text-section red">
+        <div class="text-content">
+            <div class="main-text-container">
                 <h1>Why I'm Running</h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
                 </p>
             </div>
-            <div id="welcome-right"><img src="https://dummyimage.com/800x600/000/fff"></div>
+            <div><img src="https://dummyimage.com/800x600/000/fff"></div>
 
         </div>
     </div>
 
-    <div class="footer-section">
-        <div class="footer-content">
-            <div class="footer-content-section left">
-                <p>
-                    Leul Dawit, Candidate for the 49th Student Member of the MCPS Board of Education
-                </p>
+    <div id="footer-container"></div>
 
-                <div class="footer-socials">
-                
-                    <button onclick="window.location.href = 'https://www.instagram.com/leulstuco/'" >
-                        <img src="res/icons/instagram.svg">
-                    </button>
-                    <button onclick="window.location.href = 'https://www.instagram.com/leulstuco/'" >
-                        <img src="res/icons/tiktok.svg">
-                    </button>
-                    <button onclick="window.location.href = 'https://www.instagram.com/leulstuco/'" >
-                        <img src="res/icons/x.svg">
-                    </button>
 
-                </div>
-            </div>
-            <div class="footer-section right">
-                <a href="sms:81010">Text <b>@leul4smob</b> to <b>81010</b> </a>
-                
-            </div>
-        </div>
-    </div>
+    <script src="/index.js"></script>
 
-    <script src="index.js"></script>
+
 </body>
 </html>

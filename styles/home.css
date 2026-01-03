@@ -1,0 +1,82 @@
+
+.video-section {
+  background-color: #4e0b0b;
+  overflow: hidden;
+  
+}
+
+.video-content {
+
+  margin-left: -0vh;
+  margin-right: -0vh;
+  will-change: margin;
+  transition: margin 0.05s ease-out; /* Smooth the animation slightly */
+  height:100%;
+  box-sizing: border-box;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .video-content {
+
+      margin-left: -50vh;
+      margin-right: -50vh;
+      width: 100%;
+  }
+
+  .video-js .vjs-control-bar {
+    margin-left: 50vh;
+    margin-right: 50vh;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .video-content {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Set control bar background to a semi-transparent black */
+.video-js .vjs-control-bar {
+    background-color: #b119199e
+}
+
+/* Set the color of buttons and text to white */
+.video-js .vjs-button,
+.video-js .vjs-control {
+    color: #ffffff;
+}
+
+/* Adjust the time display color if needed */
+.video-js .vjs-current-time,
+.video-js .vjs-duration {
+    color: #ffffff;
+}
+
+.video-js {
+  color: #ffffff;
+}
+
+.logo-section {
+  background-color: #b11919;
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.logo-content {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}

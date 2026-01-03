@@ -21,6 +21,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: #b11919;
+    opacity: 0;
+    transition: opacity .5s; /* The transition effect */
 }
 
 .center {
@@ -35,10 +37,11 @@ body {
   font-style: normal;
 }
 
-a {
+li span {
   color: rgb(77, 77, 77); /* Change link color */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
+  cursor: pointer;
 }
 
 /*#region topbar*/
@@ -53,7 +56,7 @@ a {
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2em 2em rgba(0,0,0,0.25);
 }
 
 .top-bar-left ul,
@@ -64,44 +67,45 @@ a {
     display: flex;
     align-items: center;
 
-    padding: 0.5em;
     gap: 1em;
+    padding: 0.5vw;
 }
 
 .top-bar-left {
-    padding-left: 1.5em;
+  padding-left: 1.5em;
 }
 
 .top-bar-right {
-    padding-right: 1.5em;
-
+  padding-right: 1.5em;
 }
 
-.top-bar-left li,
-.top-bar-right li {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
 
 .top-bar-left img {
-    height: 7em;
+    height: 3vw;
     width: auto;
     display: block;
     opacity: 0;
 }
 
-
-.top-bar-right a {
-    color: #fff;
-    text-decoration: none;
-    padding: 1em 1em;
-    display: block;
-    transition: background-color 0.3s ease;
-    border-radius: 1em;
+.top-bar-left button {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
 }
 
-.top-bar-right a:hover {
+
+.top-bar-right span {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5em;
+    font-size: 125%;
+    padding: 0.5em;
+
+}
+
+.top-bar-right span:hover {
     background-color: #5a0b0b50;
 }
 
@@ -222,7 +226,7 @@ a {
     }
 
     .top-bar-left img {
-      height: 9em;
+      height: 5em;
     }
 
     .top-bar-left ul {
@@ -237,230 +241,7 @@ a {
 
 /*#endregion*/
 
-/*#region carousel*/
 
-.prev-button, .next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.747);
-  transition: color 0.1s 0ms;
-  mix-blend-mode:exclusion;
-
-
-  /* Add styling for buttons */
-}
-
-.prev-button:hover, .next-button:hover {
-  color: rgba(97, 97, 97, 0.418);
-}
-
-.prev-button:active, .next-button:active {
-  color: rgb(187, 187, 187);
-}
-
-.carousel-btns svg {
-  width: 48px;
-  height: 48px;
-}
-
-.prev-button { left: 0.5%; }
-.next-button { right: 0.5%; }
-
-.header-carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  max-height: 75vh;
-}
-
-.cul {
-
-  max-height: 75vh;
-  margin: 0;
-
-  display: flex;
-
-  overflow-x: scroll;
-  overflow-y:hidden;
-  scroll-snap-type: x mandatory;
-  position: relative; /* Required for positioning child elements */
-}
-
-
-.cul {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.cul-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
-}
-
-.cli {
-  list-style-type: none;
-  background-color: #eeeeee00;
-  border: 1px solid #dddddd;
-  
-
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  scrollbar-width: none;
-  position: relative;
-  border: 0;
-}
-
-.cli #center-img {
-  object-fit: contain;
-
-  display: block;
-  max-height: 75vh;
-  opacity: 1.0;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-.cli #bg-img {
-
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  z-index: -1;
-
-  object-fit: contain;
-
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 1.0;
-  filter: blur(4px) brightness(50%);
-
-}
-
-
-.cli #main {
-
-  position: absolute;
-  top: 0px;
-  left: 0px;
-
-  width:auto;
-  height: 100%;
-
-
-}
-
-
-.side-header-text {
-  position: absolute;
-  background-color: #b11919c5;
-  backdrop-filter: blur(10px);
-  border-radius: 0.5em;
-  width: 45%;
-  height: 90%;
-
-  margin-top: auto;
-  margin-bottom: auto;
-
-  right: 3%;
-
-  top: 2em;
-  bottom: 2em;
-
-  padding: 1.5em;
-
-
-  overflow: hidden;       /* Hide overflow */
-  text-overflow: ellipsis; /* Add "..." */
-}
-
-
-.side-header-text h1,
-.side-header-text p {
-  color: white;
-}
-
-.side-header-text h1 {
-  font-weight: bolder;
-  font-size: clamp(0.5em,4vw,3.5em);
-  border-bottom: 0.125em solid rgba(7, 7, 7, 0.329)
-}
-
-.side-header-text p {
-  font-size: clamp(0.5vw,2.5vw,2em);
-}
-
-/*#endregion*/
-
-/*#region welcome*/
-
-.welcome-section {
-  background-color: #ecca16;
-  width: 100%;
-  height: fit-content;
-  padding: 1em;
-}
-
-.welcome-content {
-  display: table;
-  height: 100%;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-.welcome-content div {
-
-
-  height: 100%;
-  vertical-align: top;
-}
-
-@media screen and (max-width: 900px) {
-  .welcome-content div {
-      width: 100%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .welcome-content div {
-    display: table-cell;
-    width: 50%;
-  }
-}
-
-.welcome-content #welcome-left {
-  padding: 2em;
-  text-align: center;
-}
-
-.welcome-content img {
-  padding: 0 auto;
-
-  margin-top: auto;
-  margin-bottom: auto;
-
-  object-fit:cover;
-  border-radius: 0.5em;
-}
-
-.welcome-content div p {
-  text-align: justify;
-  color: white;
-  font-weight: bold;
-}
-.welcome-content div h1 {
-  color: white;
-  text-align: center;
-  vertical-align: top;
-  font-weight: bolder;
-}
-
-/*#endregion*/
 
 /*#region footer*/
 
@@ -474,8 +255,6 @@ a {
 .footer-content {
   display: table;
   height: 100%;
-  margin-left: 1em;
-  margin-right: 1em;
   width: 100%;
 }
 
@@ -487,15 +266,18 @@ a {
 }
 
 
-
-.footer-content .footer-content-section {
-  padding: 2em;
-  text-align: center;
+@media screen and (max-width: 900px) {
+  .footer-content .footer-content-section {
+    padding: 0.5em;
+    text-align: center;
+  }
 }
 
-.footer-content .footer-content-section {
-  padding: 2em;
-  text-align: center;
+@media screen and (min-width: 900px) {
+  .footer-content .footer-content-section {
+    padding: 2em;
+    text-align: center;
+  }
 }
 
 .footer-content div p {
@@ -553,3 +335,233 @@ a {
 }
 
 /*#endregion*/
+
+
+/*#region header*/
+
+.header-section {
+  background-color: white;
+
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.header-content {
+  position: relative; /* Add this */
+  height: 100%; /* Add this */
+  display: flex; /* Change from table */
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes title to bottom */
+}
+
+.header-section .image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  z-index: 1; /* Add this - puts image behind */
+}
+
+.header-section .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+@media screen and (max-width: 900px) {
+  .header-section {
+      height: 75vh;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .header-section {
+    height: 60vh;
+  }
+
+  .header-section .image-container img {
+    object-position: 50% 50%;
+  }
+}
+
+
+.header-section .image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(177, 25, 25, 1) 100%);
+  z-index: 2; /* Add this - puts gradient on top of image */
+}
+
+.title-container {
+  position: relative;
+  z-index: 3; /* Add this - puts text on top of everything */
+
+}
+
+/* Rest of your CSS stays the same */
+
+.header-section.yellow {
+  background-color: #ecca16;
+}
+
+.header-section.yellow .image-container::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, #ecca16 100%);
+}
+
+.header-section.red {
+  background-color: #b11919;
+}
+
+.header-section.red .image-container::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, #b11919 100%);
+}
+
+
+.header-content div h1 {
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+  font-size: 275%;
+}
+
+.line-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.line-text span {
+  padding: 0 10px;
+
+  font-size: 500%;
+  line-height: 0.5em;
+  font-weight: bold;
+  color: white;
+  font-family: serif;
+}
+
+
+
+
+.line-text::before,
+.line-text::after {
+  content: ""; 
+  flex: 1; 
+  border-top: 0.5vh solid white; 
+}
+
+.line-text::before {
+  margin-right: 10px; /* Space between the left line and the text */
+}
+
+.line-text::after {
+  margin-left: 10px; /* Space between the right line and the text */
+}
+
+/*#endregion*/
+
+.text-section {
+  background-color: white;
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.text-section.yellow {
+  background-color: #ecca16;
+}
+
+.text-section.red {
+  background-color: #b11919;
+}
+
+.text-section.maroon {
+  background-color: #4e0b0b;
+}
+
+.text-content {
+  display: table;
+  height: 100%;
+}
+
+.text-content div {
+
+
+  height: 100%;
+  vertical-align: top;
+}
+
+@media screen and (max-width: 900px) {
+  .text-content div {
+      width: 100%;
+      height: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+  }
+
+  .text-content div {
+    display: none;
+  }
+
+  .text-content .main-text-container {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+  .text-content {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .text-content div {
+    display: table-cell;
+    width: 50%;
+    padding: 1.5em;
+  }
+}
+
+.text-content div p {
+  text-align: justify;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+.text-content div h1 {
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+}
+
+.text-content img {
+  display: block;
+  padding: 0 auto;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  object-fit:cover;
+  border-radius: 0.5em;
+
+  max-width: 100%; /* Ensures the image does not exceed the container's width */
+  height: auto;    /* Automatically adjusts height to maintain aspect ratio */
+}
