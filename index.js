@@ -29,7 +29,18 @@ function close_fullscreen() {
 }
 
 function link(url) {
-  transitionToPage(url)
+  // If already a full URL, use as-is
+  if (url.startsWith('http')) {
+    transitionToPage(url);
+    return;
+  }
+  
+  // For GitHub Pages project sites, detect base path
+  const basePath = window.location.pathname.split('/')[1];
+  const isProjectSite = basePath && !url.includes(basePath);
+  
+  const absoluteUrl = isProjectSite ? `/${basePath}${url}` : url;
+  transitionToPage(absoluteUrl);
 }
 
 window.transitionToPage = function(href) {
