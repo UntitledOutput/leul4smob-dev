@@ -1,15 +1,14 @@
-fetch('/navbar.html')
+fetch(`${window.location.origin}/navbar.html`)
     .then(response => response.text())
     .then(html => {
       document.getElementById('navbar-container').outerHTML = html;
     })
 
-fetch('/footer.html')
+fetch(`${window.location.origin}/footer.html`)
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').outerHTML = html;
     })
-
 
 
 function logo_btn_click() {
