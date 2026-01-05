@@ -1,17 +1,22 @@
-// At the top of your script
-const basePath = window.location.pathname.match(/^\/[^\/]+\//)?.[0] || '/';
-
-fetch(`${basePath}navbar.html`)
+fetch('/navbar.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('navbar-container').outerHTML = html;
     })
 
-fetch(`${basePath}footer.html`)
+fetch('/footer.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').outerHTML = html;
     })
+
+fetch('/head.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('head-container').outerHTML = html;
+    })
+
+
 
 function logo_btn_click() {
   const fullscreen_wrapper = document.querySelector('.fullscreen-container');
@@ -29,18 +34,7 @@ function close_fullscreen() {
 }
 
 function link(url) {
-  // If already a full URL, use as-is
-  if (url.startsWith('http')) {
-    transitionToPage(url);
-    return;
-  }
-  
-  // For GitHub Pages project sites, detect base path
-  const basePath = window.location.pathname.split('/')[1];
-  const isProjectSite = basePath && !url.includes(basePath);
-  
-  const absoluteUrl = isProjectSite ? `/${basePath}${url}` : url;
-  transitionToPage(absoluteUrl);
+  transitionToPage(url)
 }
 
 window.transitionToPage = function(href) {

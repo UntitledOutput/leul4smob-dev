@@ -16,22 +16,6 @@
 }
 
 
-
-@media screen and (max-width: 900px) {
-  .video-content {
-
-      margin-left: -50vh;
-      margin-right: -50vh;
-      width: 100%;
-  }
-
-  .video-js .vjs-control-bar {
-    margin-left: 50vh;
-    margin-right: 50vh;
-    width: auto;
-  }
-}
-
 @media screen and (min-width: 900px) {
   .video-content {
     width: 75%;
@@ -72,6 +56,16 @@
   display: table;
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .logo-content {
+    display: table;
+    height: 100%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .logo-content img {

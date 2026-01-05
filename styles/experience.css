@@ -1,0 +1,223 @@
+
+.experience-section {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.experience-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%/3, 10rem), 1fr));
+  height: 100%;
+  gap: 1em;
+}
+
+.experience-content div {
+
+
+    height: 100%;
+    vertical-align: top;
+    padding: 1.5em;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.experience-content h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 7.5vw;
+    margin-bottom: 0;
+    line-height: 7.5vw;
+
+    margin-top: auto;
+}
+
+.experience-content h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5vw;
+    line-height: 3vw;
+}
+
+@media screen and (max-width: 900px) {
+  .experience-section {
+    width: 100%;
+  }
+
+  .experience-content {
+      grid-template-columns: auto;
+  }
+
+  .experience-content h2 {
+    font-size: 3.5vw;
+  }
+}
+
+@media screen and (min-width: 900px) {
+    .experience-content h1 {
+        font-size: 5vw;
+    }
+}
+
+
+
+
+.actiivty-section {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
+
+.activity-content {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 100%;
+  gap: 1em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+}
+
+.activity-content > div {
+    height:fit-content;
+}
+
+.activity-content > div .img-container {
+    width: 100%;
+    height: 25vh;
+    margin-bottom: 0.5em;
+}
+
+.activity-content > div img {
+    width: 100%;
+    height: 100%;
+
+    object-fit:cover;
+
+    border: solid #6d1313;
+    border-radius: 2em;
+}
+
+.activity-content > div .tag-container {
+    display: flex;       /* Aligns list items horizontally */
+    list-style-type: none; /* Removes bullet points */
+    margin: 0;           /* Removes default margin */
+    padding: 0;          /* Removes default padding */
+    gap: 1em;           /* Adds space between items */
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.activity-content > div .tag-container li {
+    border: solid;
+    border-radius: 1em;
+
+    padding: 0.5em;
+    line-height: 0.5em;
+    
+    font-weight: bold;
+    color: white;
+}
+
+.activity-content > div .tag-container .major {
+    background-color: var(--secondary-color);
+    border: solid var(--secondary-color);
+    color: black;
+}
+
+.activity-content > div h1 {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0;
+}
+
+.activity-content > div h3 {
+    font-size: 1.25vw;
+    color: white;
+    font-weight: bold;
+}
+
+.activity-content > div div {
+    color: white;
+}
+
+.activity-content > div .description-container {
+    background-color: rgba(0, 0, 0, 0.242);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.activity-content > div .button-container {
+    padding: 0.5em;
+    font-size: 2vw;
+    text-align: center;
+
+    margin-top: 0.5em;
+
+    border: solid var(--secondary-color);
+    border-radius: 3em;
+    
+    color: var(--secondary-color);
+
+    cursor: pointer;
+
+    transition: 
+        0.5s background-color ease,
+        0.5s color ease;
+}
+
+.activity-content > div .button-container:hover {
+   background-color: var(--secondary-color);
+   color: white;
+}
+
+
+@media screen and (min-width: 900px) {
+
+    .activity-content {
+        width: 85%;
+    }
+    .activity-content > div h1 {
+        font-size: 1.5vw;
+    }
+
+    .activity-content > div .button-container {
+        font-size: 1.25vw;
+    }
+
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .activity-content {
+        grid-template-columns: auto;
+    }
+
+    .activity-content > div .button-container {
+        font-size: 3vw;
+    }
+
+
+    .activity-content > div h1 {
+        font-size: 4vw;
+    }
+    
+    .activity-content > div h3 {
+        font-size: 2.5vw;
+    }
+
+}
+
+@media screen and (min-width: 900px) {
+
+    .activity-content > div .button-container {
+        font-size: 2vw;
+    }
+
+}
