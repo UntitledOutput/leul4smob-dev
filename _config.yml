@@ -1,2 +1,2 @@
-baseurl: ""
+baseurl: "/leul4smob-dev/"
 gem 'github-pages', group: :jekyll_plugins
