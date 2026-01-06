@@ -1,16 +1,19 @@
-fetch('/navbar.html')
+---
+---
+
+fetch('{{ site.baseurl }}/navbar.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('navbar-container').outerHTML = html;
     })
 
-fetch('/footer.html')
+fetch('{{ site.baseurl }}/footer.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('footer-container').outerHTML = html;
     })
 
-fetch('/head.html')
+fetch('{{ site.baseurl }}/head.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('head-container').outerHTML = html;
@@ -34,6 +37,7 @@ function close_fullscreen() {
 }
 
 function link(url) {
+  url = "{{ site.baseurl }"+url
   transitionToPage(url)
 }
 

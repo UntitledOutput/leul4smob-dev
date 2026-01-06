@@ -1,3 +1,5 @@
 res/Thumbs.db
 /node_modules
 /screenshots
+/_site
+/.jekyll-cache

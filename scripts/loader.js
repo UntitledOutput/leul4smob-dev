@@ -47,7 +47,8 @@ var player = videojs('main-video', {
     fluid: true,
     loop: true,
     aspectRatio: '16:9',
-    muted: false
+    muted: false,
+    playsinline: true
 }, function onPlayerReady() {
     // This function runs once the player is fully set up and ready to use the API
     console.log('Your player is ready!');
