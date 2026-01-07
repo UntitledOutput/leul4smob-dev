@@ -390,7 +390,7 @@ li span {
 
 @media screen and (min-width: 900px) {
   .header-section {
-    height: 60vh;
+    height: 80vh;
   }
 
   .header-section .image-container img {
@@ -440,7 +440,7 @@ li span {
   text-align: center;
   vertical-align: top;
   font-weight: bolder;
-  font-size: 300%;
+  font-size: 5vw;
 }
 
 .line-text {
@@ -456,7 +456,7 @@ li span {
   padding: 0 10px;
 
   font-size: 500%;
-  line-height: 0.5em;
+  line-height: 0.75em;
   font-weight: bold;
   color: white;
   font-family: serif;
@@ -485,8 +485,12 @@ li span {
 .text-section {
   background-color: white;
   width: 100%;
-  height: fit-content;
-  padding: 1em;
+  height: 50vh;
+  padding: 10vw;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-sizing: border-box; /* Include padding in height calculation */
+  display: flex; /* Flexbox is the most reliable method */
 }
 
 .text-section.yellow {
@@ -502,16 +506,56 @@ li span {
 }
 
 .text-content {
-  display: table;
-  height: 100%;
+  width: 100%;
+
+  flex-grow: 1;      /* Allows child to fill available space */
+  display: flex;     /* Makes the child a flex container for grandchildren */
+  flex-direction: row; /* Stacks grandchildren vertically */
 }
 
 .text-content div {
-
-
-  height: 100%;
-  vertical-align: top;
+  vertical-align: middle;
+  box-sizing: border-box; /* Include padding in height calculation */
+  justify-content: center;
+  align-items: center; /* Vertically centers the content */
+  display: flex;
 }
+
+.text-content div p {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(100%, 120%, 200%);
+  margin: 0; /* Remove default margins */
+
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-self: center;
+}
+
+@media screen and (min-width: 1200px) {
+
+.text-content div p {
+  font-size: clamp(100%, 135%, 200%);
+}
+
+}
+
+.text-content div h1 {
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-weight: bolder;
+  margin: 0; /* Remove default margins */
+}
+
+.text-content img {
+  display: block;
+  object-fit: cover;
+  border-radius: 0.5em;
+  aspect-ratio: 1.835/1;
+}
+
 
 @media screen and (max-width: 900px) {
 
@@ -519,70 +563,45 @@ li span {
     font-size: 7.5vw;
   }
 
+  .text-section {
+    padding: 1em;
+    height: auto; /* Allow natural height on mobile */
+  }
+
   .text-content div {
       width: 100%;
-      height: 50%;
-      margin-top: 1em;
-      margin-bottom: 1em;
+  }
+
+  .text-content div p {
+    color: white;
+    font-weight: bold;
+    font-size: clamp(1.5rem, 2.5rem, 2vh);
   }
 
   .text-content {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .text-content div {
-    display: none;
-  }
 
   .text-content .main-text-container {
     display: block;
+    order: -1;
+    margin-bottom: 1em;
   }
 }
-
-
 
 @media screen and (min-width: 900px) {
 
   .text-content {
-    width: 85%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .text-content div {
-    display: table-cell;
     width: 50%;
     padding: 1.5em;
   }
-}
-
-.text-content div p {
-  text-align: justify;
-  color: white;
-  font-weight: bold;
-  font-size: 2vh;
-}
-.text-content div h1 {
-  color: white;
-  text-align: center;
-  vertical-align: top;
-  font-weight: bolder;
-}
-
-.text-content img {
-  display: block;
-  padding: 0 auto;
-
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-
-  object-fit:cover;
-  border-radius: 0.5em;
-
-  max-width: 100%; /* Ensures the image does not exceed the container's width */
-  height: auto;    /* Automatically adjusts height to maintain aspect ratio */
 }

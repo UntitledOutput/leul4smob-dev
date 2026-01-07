@@ -1,6 +1,16 @@
 ---
 ---
 
+document.addEventListener('DOMContentLoaded', function(event) {
+  document.querySelector('body').style.opacity = 0; /* Fade in on load */
+});
+
+window.addEventListener("load", function(event) {
+  document.querySelector('body').style.opacity = 1; /* Fade in on load */
+});
+
+
+
 fetch('{{ site.baseurl }}/navbar.html')
     .then(response => response.text())
     .then(html => {
@@ -41,14 +51,11 @@ function link(url) {
   transitionToPage(url)
 }
 
+
 window.transitionToPage = function(href) {
   document.querySelector('body').style.opacity = 0;
   setTimeout(function() {
     window.location.href = href; /* Redirect after the animation */
   }, 500); /* Must match the CSS transition duration */
 }
-
-document.addEventListener('DOMContentLoaded', function(event) {
-  document.querySelector('body').style.opacity = 1; /* Fade in on load */
-});
 

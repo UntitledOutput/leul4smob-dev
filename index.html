@@ -11,7 +11,7 @@
     <meta http-equiv="Expires" content="0">
 
     <meta id="head-container">
-    <script src="{{ '/index.js?v=1767423356' | absolute_url }}"></script>
+    <script src="{{ '/index.js?' | absolute_url }}"></script>
 
     <script src="https://vjs.zencdn.net/8.23.4/video.min.js?v=1767423356"></script>
     <script src="https://kit.fontawesome.com/74d16b5406.js?v=1767423356" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ '/styles/home.css' | absolute_url }}">
 
 </head>
-<body>
+<body >
     
     <div id="navbar-container"></div>
 
@@ -47,17 +47,26 @@
         </div>
     </div>
 
-
-    <div class="text-section yellow">
-        <div class="text-content">
-            <div class="main-text-container">
-                <h1>Why I'm Running</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                </p>
+    <div class="gallery-section">
+        <div class="gallery-content">
+            <div onclick="link('/meet-leul')">
+                <img src="{{ '/res/photos/band02.jpg' | absolute_url }}">
+                <div class="gallery-button">
+                    Meet Leul
+                </div>
             </div>
-            <div><img src="https://dummyimage.com/800x600/000/fff"></div>
-
+            <div onclick="link('/policy')" >
+                <img src="{{ '/res/photos/poster00.jpg' | absolute_url }}">
+                <div class="gallery-button">
+                    Platform
+                </div>
+            </div>
+            <div onclick="link('https://bit.ly/leul4smob')">
+                <img src="{{ '/res/photos/pair01.jpg' | absolute_url }}">
+                <div class="gallery-button">
+                    Join the team!
+                </div>
+            </div>
         </div>
     </div>
 

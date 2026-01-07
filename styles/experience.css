@@ -71,8 +71,12 @@
 }
 
 .activity-content {
-  display: grid;
-  grid-template-columns: auto auto;
+
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This centers the items in the last row */
+  gap: 1em; /* Add gaps between items if needed */
+
   height: 100%;
   gap: 1em;
   width: 90%;
@@ -83,6 +87,8 @@
 
 .activity-content > div {
     height:fit-content;
+  flex: 0 0 calc(100%/2 - 1em); /* Adjust the percentage and gap calculation as needed */
+
 }
 
 .activity-content > div .img-container {
@@ -153,8 +159,9 @@
 }
 
 .activity-content > div .button-container {
-    padding: 0.5em;
-    font-size: 2vw;
+    padding: 0.25em;
+    font-size: 0.5vw;
+
     text-align: center;
 
     margin-top: 0.5em;
@@ -186,8 +193,9 @@
         font-size: 1.5vw;
     }
 
+
     .activity-content > div .button-container {
-        font-size: 1.25vw;
+        font-size: 2vw;
     }
 
 }
@@ -196,7 +204,13 @@
 @media screen and (max-width: 900px) {
 
     .activity-content {
-        grid-template-columns: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .activity-content > div {
+        flex: 0 0 calc(100% - 1em); /* Adjust the percentage and gap calculation as needed */
+
     }
 
     .activity-content > div .button-container {
@@ -214,10 +228,26 @@
 
 }
 
-@media screen and (min-width: 900px) {
+.gag-section {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: fit-content;
+  padding: 1em;
+}
 
-    .activity-content > div .button-container {
-        font-size: 2vw;
-    }
+.gag-content {
+    display: table;
+  height: 100%;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
 
+.gag-content h1,
+.gag-content h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 300%;
 }

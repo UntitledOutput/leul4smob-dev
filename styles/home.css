@@ -74,3 +74,61 @@
   margin-right: auto;
 
 }
+
+.gallery-section {
+  background-color: #b11919;
+  width: 100%;
+  height: 75vh;
+}
+
+.gallery-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.gallery-content > div {
+  flex: 0 0 calc(100%/3);
+  box-sizing: border-box;
+  display: flex;
+  position: relative; /* This makes it the positioning context for absolute children */
+  border: solid #ecca16 0px;
+  transition: border-width 0.3s ease;
+}
+
+.gallery-content img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: 50% 12.5%;
+}
+
+.gallery-content .gallery-button {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 90%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+  padding: 0.5em 1em;
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 0.5em;
+  z-index: 10;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+white-space: nowrap;
+}
+
+.gallery-content > div:hover .gallery-button {
+  background-color: #7a0f0f
+}
+
+
+.gallery-content > div:hover {
+  border: solid #ecca16 1em;
+}
