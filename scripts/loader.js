@@ -39,7 +39,7 @@ window.addEventListener("scroll", () => {
 
 */
 
-autoplay = seconds > 0 && !urlParams.has("bypass-ctd")
+autoplay = !(seconds > 0 && !urlParams.has("bypass-ctd"))
 
 // Get a reference to the player by its ID
 var player = videojs('main-video', {
