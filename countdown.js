@@ -79,6 +79,7 @@ function check() {
             countdown.style.top = "-100vh"
             countdown.style.opacity = "0"
             document.body.style.overflow = "auto"
+            player.play()
         }
     }
 }
