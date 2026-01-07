@@ -31,8 +31,13 @@
     <div class="video-section">
         <div class="video-content">
 
-            <div style="padding:56.4% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1152220827?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;byline=0&amp;profile=false&amp;title=0&amp;vimeo_logo=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Leul Dawit SMOB Campaign Announcement"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
+            <video
+                id="main-video"
+                class="video-js"
+            >
+                <source src="{{ '/res/videos/covervideo.mp4' | absolute_url }}" type="video/mp4" />
+                <source src="{{ '/res/videos/covervideo.webm' | absolute_url }}" type="video/webm" />
+            </video>6
         </div>
     </div>
     
@@ -53,7 +58,7 @@
                 </div>
             </div>
             <div onclick="link('/policy')" >
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/poster00.jpg">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/advoc00.jpg">
                 <div class="gallery-button">
                     Platform
                 </div>
