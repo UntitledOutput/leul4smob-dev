@@ -132,3 +132,22 @@ white-space: nowrap;
 .gallery-content > div:hover {
   border: solid #ecca16 1em;
 }
+
+@media screen and (max-width: 900px) {
+  .gallery-content .gallery-button {
+    top:80%;
+  }
+
+  .gallery-content {
+    flex-direction: column;
+  }
+
+  .gallery-section {
+    height: auto;
+  }
+
+  .gallery-content > div {
+    flex: 0 0 auto;
+    height: 50vh; /* Give each item a fixed height */
+  }
+}

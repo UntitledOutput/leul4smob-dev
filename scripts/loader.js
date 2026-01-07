@@ -42,7 +42,7 @@ window.addEventListener("scroll", () => {
 // Get a reference to the player by its ID
 var player = videojs('main-video', {
     // Optional: Pass options as a JavaScript object (e.g., autoplay, plugins)
-    autoplay: true,
+    autoplay: false,
     controls: true,
     fluid: true,
     loop: true,
