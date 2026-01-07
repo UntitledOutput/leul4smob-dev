@@ -1,3 +1,8 @@
 baseurl: "/leul4smob-dev"
 # url: "https://leul4smob.com"
 gem 'github-pages', group: :jekyll_plugins
+exclude:
+  - node_modules
+  - Gemfile.lock
+  - README.md
+  - .jekyll-cache

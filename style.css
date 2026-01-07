@@ -171,7 +171,7 @@ li span {
     text-align: center;
     font-weight:normal;
     line-height: 2em;
-    font-size: 2em;
+    font-size: 4.5vh;
 
     background-color: #02020223;
     color: white;
@@ -526,7 +526,7 @@ li span {
 .text-content div p {
   color: white;
   font-weight: bold;
-  font-size: clamp(100%, 120%, 200%);
+  font-size: clamp(100%, 100%, 200%);
   margin: 0; /* Remove default margins */
 
   display: block;
@@ -543,7 +543,8 @@ li span {
 
 }
 
-.text-content div h1 {
+.text-content div h1,
+.text-content div h2 {
   color: white;
   text-align: center;
   vertical-align: top;
