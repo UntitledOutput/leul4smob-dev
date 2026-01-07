@@ -53,7 +53,7 @@ function close_fullscreen() {
 }
 
 function link(url) {
-  url = "{{ site.baseurl }}"+url
+  url = "{{ site.baseurl }}"+url+"?bypass-ctd"
   transitionToPage(url)
 }
 
@@ -65,3 +65,6 @@ window.transitionToPage = function(href) {
   }, 500); /* Must match the CSS transition duration */
 }
 
+if (window.performance && window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+  document.querySelector('body').style.opacity = 1; /* Fade in on load */
+}

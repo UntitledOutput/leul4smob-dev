@@ -520,6 +520,7 @@ li span {
   justify-content: center;
   align-items: center; /* Vertically centers the content */
   display: flex;
+  flex-direction: column;
 }
 
 .text-content div p {
@@ -605,4 +606,23 @@ li span {
     width: 50%;
     padding: 1.5em;
   }
+}
+
+.text-content hashtag {
+  font-size: clamp(2rem, 3.5rem, 2vh);
+}
+
+@media screen and (max-width: 900px) {
+
+.text-content hashtag {
+  font-size: clamp(2.5rem, 3.5rem, 2vh);
+}
+}
+
+.text-content h1 span {
+  color:#b11919;
+}
+
+.text-content h1 span:nth-child(3) {
+  color:rgb(193, 133, 21);
 }
