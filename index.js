@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         document.getElementById('head-container').outerHTML = html;
       })
 
-      // time heck
-
 
 });
 

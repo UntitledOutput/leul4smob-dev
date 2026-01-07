@@ -24,14 +24,18 @@ function loadCSS(filename) {
 
 
 
-    var countDownDate = new Date(countdown_date).getTime();
-    var now = new Date().getTime();
+var countDownDate = new Date(countdown_date).getTime();
+var now = new Date().getTime();
 
-    var distance = countDownDate - now;
+var distance = countDownDate - now;
 
-    var seconds = distance / 1000
+var seconds = distance / 1000
 
-if (seconds > 0) {
+const urlParams = new URLSearchParams(window.location.search);
+
+
+if (seconds > 0 && !urlParams.has("bypass-ctd")) {
+
     document.addEventListener("DOMContentLoaded", function(event) {
     fetch('{{ site.baseurl }}/countdown.html')
         .then(response => response.text())
