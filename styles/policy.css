@@ -1,77 +1,76 @@
 /*#region pillars */
 
 .pillar-section {
-  background-color: #b11919;
-  width: 100%;
-  height: 50vh;
-  padding: 1em;
+    background-color: #b11919;
+    width: 100%;
+    height: 70vh;
+    padding: 1em;
 }
 
 .pillar-content {
-  display: flex;
-  height: auto;
-  max-height: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1em; /* Space between items */
-  margin: 1em;
-  
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(0.25em, 2vw, 1em); /* Responsive gap */
 }
 
-.pillar-content div {
-  text-align: center; /* Centers the object within its div */
-  cursor: pointer;
-
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
+.pillar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: none; /* Removed max-width for better responsiveness */
+    cursor: pointer;
+    min-height: 0;
 }
 
-.pillar-content div h1 {
-    font-weight: bolder;
+.pillar-item h1 {
+    font-weight: bold;
     color: #ecca16;
-    margin-bottom: 0;
-    font-size: 10vw;
+    font-size: clamp(3rem, 10vw, 8rem); /* Responsive font size with limits */
     line-height: 0.75em;
     font-family: serif;
-
+    margin: 0 0 0 0; /* Responsive margin */
     transition: color 0.2s ease;
-    margin-left: auto;
-    margin-right: auto;
+    flex-shrink: 0;
 }
 
-.pillar-content div:hover h1 {
+.pillar-item:hover h1 {
     color: #ffffff;
 }
 
-.pillar-content div:active h1 {
+.pillar-item:active h1 {
     color: #ecca16;
 }
 
+.pillar-item object {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    object-fit: contain;
+    transition: filter 0.2s ease;
+    pointer-events: none;
+    user-select: none;
+    align-self: flex-start; /* Anchor to top */
+    display: block; /* Removes inline element spacing */
 
-.pillar-content div object {
-  width: 100%;
-  transition: filter 0.2s ease;
-  cursor: pointer;
-  pointer-events: none; /* Allows clicks to pass through to parent */
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Safari, Chrome, Opera */
-  -khtml-user-select: none;    /* Konqueror HTML */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Standard syntax */
-
-  object-fit: contain;
 }
 
-.pillar-content div:hover object {
-    filter:brightness(115%);
+.pillar-item:hover object {
+    filter: brightness(115%);
 }
 
-.pillar-content div:active object {
-    filter:brightness(95%);
+.pillar-item:active object {
+    filter: brightness(95%);
+}
+
+/* Optional: Adjust section height on mobile for better proportions */
+@media (max-width: 768px) {
+    .pillar-section {
+        height: 40vh; /* Slightly smaller on mobile */
+        padding: 0.5em;
+    }
 }
 
 /*#endregion*/

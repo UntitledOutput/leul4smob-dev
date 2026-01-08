@@ -4,6 +4,7 @@
 
 countdown_date = "Jan 7, 2026 19:30:00"
 
+//countdown_date = new Date(new Date().getTime() + 3000)
 
 // Function to dynamically load a CSS file
 function loadCSS(filename) {
@@ -30,9 +31,9 @@ var now = new Date().getTime();
 var distance = countDownDate - now;
 
 var seconds = distance / 1000
+var days = Math.floor(distance / (1000 * 60 * 60 * 24))
 
 const urlParams = new URLSearchParams(window.location.search);
-
 
 if (seconds > 0 && !urlParams.has("bypass-ctd")) {
 
@@ -45,10 +46,28 @@ if (seconds > 0 && !urlParams.has("bypass-ctd")) {
             var script = document.createElement('script');
             script.src = "{{ '/countdown.js?' | absolute_url }}";
             document.body.appendChild(script)
+
+
         })
     })
 
     // Call the function to load your CSS file
     loadCSS('/countdown.css'); 
+} else if (days > -3) {
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 2500,
+                    spread: 360,
+                    ticks: 100,
+                    gravity: 0,
+                    decay: 0.94,
+                    colors: ["b11919", "ecca16"],
+                });
+            }, 1000);
+
+    })
 }
+
 

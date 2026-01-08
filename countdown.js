@@ -79,7 +79,18 @@ function check() {
             countdown.style.top = "-100vh"
             countdown.style.opacity = "0"
             document.body.style.overflow = "auto"
-            player.play()
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 2500,
+                    spread: 360,
+                    ticks: 100,
+                    gravity: 0,
+                    decay: 0.94,
+                    colors: ["b11919", "ecca16"],
+                });
+            }, 2000);
+
         }
     }
 }
