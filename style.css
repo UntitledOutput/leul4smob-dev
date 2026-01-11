@@ -51,6 +51,24 @@ li span {
   cursor: pointer;
 }
 
+#alert-bar {
+  font-family: "Ubuntu", sans-serif;
+  font-weight:  bold;
+  font-style: normal; 
+  font-size: 1.5rem;
+  color: white;
+
+  padding: 0.125em;
+  background-color: #d09413;
+
+  position: sticky; /* or fixed if you want it to stay at top while scrolling */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+    display: flex;
+
+}
+
 /*#region topbar*/
 
 .topbar-div {

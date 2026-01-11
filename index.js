@@ -56,6 +56,7 @@ function link(url) {
 
 
 window.transitionToPage = function(href) {
+  close_fullscreen()
   document.querySelector('body').style.opacity = 0;
   setTimeout(function() {
     window.location.href = href; /* Redirect after the animation */
