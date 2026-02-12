@@ -52,6 +52,8 @@ title: Welcome
             <video
                 id="main-video"
                 class="video-js"
+                preload="metadata"
+                aria-label="Campaign video"
             >
                 <source src="{{ '/res/videos/covervideo.mp4' | absolute_url }}" type="video/mp4" />
                 <source src="{{ '/res/videos/covervideo.webm' | absolute_url }}" type="video/webm" />
@@ -63,30 +65,30 @@ title: Welcome
 
     <div class="logo-section">
         <div class="logo-content">
-            <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png">
+            <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png" alt="Leul 4 SMOB logo sticker">
         </div>
     </div>
 
     <div class="gallery-section">
         <div class="gallery-content">
-            <div onclick="link('/meet-leul')">
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/pole00.jpg">
+            <button class="gallery-card" type="button" aria-label="Meet Leul" onclick="link('/meet-leul')">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/pole00.jpg" alt="Leul speaking at a podium" loading="lazy" decoding="async">
                 <div class="gallery-button">
                     Meet Leul
                 </div>
-            </div>
-            <div onclick="link('/policy')" >
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/advoc00.jpg">
+            </button>
+            <button class="gallery-card" type="button" aria-label="View platform" onclick="link('/policy')" >
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/advoc00.jpg" alt="Leul advocating" loading="lazy" decoding="async">
                 <div class="gallery-button">
                     Platform
                 </div>
-            </div>
-            <div onclick="link('https://bit.ly/leul4smob')">
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/pair01.jpg">
+            </button>
+            <button class="gallery-card" type="button" aria-label="Join the team" onclick="link('https://bit.ly/leul4smob')">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/pair01.jpg" alt="Leul with a supporter" loading="lazy" decoding="async">
                 <div class="gallery-button">
                     Join the team!
                 </div>
-            </div>
+            </button>
         </div>
     </div>
 

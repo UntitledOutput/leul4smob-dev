@@ -87,7 +87,7 @@ function check() {
                     ticks: 100,
                     gravity: 0,
                     decay: 0.94,
-                    colors: ["b11919", "ecca16"],
+                    colors: ["#b11919", "#ecca16"],
                 });
             }, 2000);
 

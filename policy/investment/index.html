@@ -47,7 +47,7 @@ title: Investment
     <div class="header-section red">
         <div class="header-content">
             <div class="image-container">
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/sport00.jpg">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/sport00.jpg" alt="Students in sports uniforms">
             </div>
             <div class="title-container">
                 <div class="line-text">
@@ -73,24 +73,24 @@ title: Investment
     <div class="category-section">
         <div class="category-content">
             <div class="category-box closed">
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-school fa-bounce"></i>
                     <h2>School Facilities and Infrastructure.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
                         <li>Create reporting systems for students and schools to report infrastructure failures.</li>
-                        <li>Have students recount firsthand facility issues directly for an audit created entirely by MCPS students.</li>
+                        <li>Have students document firsthand facility issues for an audit created entirely by MCPS students.</li>
                         <li>Prioritize schools that fail to provide clean, safe, and accessible learning environments in future Capital Improvement Plans (CIP).</li>
                     </ul>
                 </div>
             </div>
             <div class="category-box closed" >
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-brain fa-bounce"></i>
                     <h2>Mental Health.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
                         <li>Strictly enforce minimum counselor-to-student ratios.</li>
                         <li>Encourage MCPS students to utilize their school's psychologists.</li>
@@ -108,9 +108,21 @@ title: Investment
     <script>
         function category_btn_click(element) {
             if (element.classList.contains("open")) {
-                element.className = "category-box closed"
+                element.className = "category-box closed";
             } else {
-                element.className = "category-box open"
+                element.className = "category-box open";
+            }
+
+            var button = element.querySelector(".button-container");
+            var text = element.querySelector(".text-container");
+            var isOpen = element.classList.contains("open");
+
+            if (button) {
+                button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            }
+
+            if (text) {
+                text.setAttribute("aria-hidden", isOpen ? "false" : "true");
             }
         }
     </script>

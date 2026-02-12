@@ -39,7 +39,9 @@ window.addEventListener("scroll", () => {
 
 */
 
-autoplay = !(seconds > 0 && !urlParams.has("bypass-ctd"))
+var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var hasCountdown = typeof seconds === 'number' ? seconds > 0 : false;
+var autoplay = !reduceMotion && !hasCountdown;
 
 // Get a reference to the player by its ID
 var player = videojs('main-video', {
@@ -47,9 +49,9 @@ var player = videojs('main-video', {
     autoplay: autoplay,
     controls: true,
     fluid: true,
-    loop: true,
+    loop: !reduceMotion,
     aspectRatio: '16:9',
-    muted: false,
+    muted: true,
     playsinline: true
 }, function onPlayerReady() {
     // This function runs once the player is fully set up and ready to use the API
@@ -63,7 +65,3 @@ var player = videojs('main-video', {
         console.log('Awww... over so soon?!');
     });
 });
-
-document.addEventListener("mousemove", () => {
-  player.muted(false)
-})

@@ -2,14 +2,14 @@
 ---
 
 
-countdown_date = "Jan 7, 2026 19:30:00"
+var countdown_date = "Jan 7, 2026 19:30:00";
 
 //countdown_date = new Date(new Date().getTime() + 3000)
 
 // Function to dynamically load a CSS file
 function loadCSS(filename) {
 
-    filename = "{{ site.baseurl }}"+filename
+    filename = "{{ site.baseurl }}" + filename;
 
     // Create a new link element
     var link = document.createElement('link');
@@ -30,31 +30,29 @@ var now = new Date().getTime();
 
 var distance = countDownDate - now;
 
-var seconds = distance / 1000
-var days = Math.floor(distance / (1000 * 60 * 60 * 24))
+var seconds = distance / 1000;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-const urlParams = new URLSearchParams(window.location.search);
+if (seconds > 0) {
 
-if (seconds > 0 && !urlParams.has("bypass-ctd")) {
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('{{ site.baseurl }}/countdown.html')
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(html) {
+                document.body.insertAdjacentHTML('afterbegin', html);
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-    fetch('{{ site.baseurl }}/countdown.html')
-        .then(response => response.text())
-        .then(html => {
-            document.body.insertAdjacentHTML('afterbegin', html);
-            
-            var script = document.createElement('script');
-            script.src = "{{ '/countdown.js?' | absolute_url }}";
-            document.body.appendChild(script)
-
-
-        })
-    })
+                var script = document.createElement('script');
+                script.src = "{{ '/countdown.js?' | absolute_url }}";
+                document.body.appendChild(script);
+            });
+    });
 
     // Call the function to load your CSS file
-    loadCSS('/countdown.css'); 
+    loadCSS('/countdown.css');
 } else if (days > -3) {
-        document.addEventListener("DOMContentLoaded", function(event) {
+        document.addEventListener("DOMContentLoaded", function() {
 
             setTimeout(() => {
                 confetti({
@@ -63,11 +61,11 @@ if (seconds > 0 && !urlParams.has("bypass-ctd")) {
                     ticks: 100,
                     gravity: 0,
                     decay: 0.94,
-                    colors: ["b11919", "ecca16"],
+                    colors: ["#b11919", "#ecca16"],
                 });
             }, 1000);
 
-    })
+    });
 }
 
 

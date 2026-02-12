@@ -89,13 +89,20 @@
   box-sizing: border-box;
 }
 
-.gallery-content > div {
+.gallery-content > .gallery-card {
   flex: 0 0 calc(100%/3);
   box-sizing: border-box;
   display: flex;
   position: relative; /* This makes it the positioning context for absolute children */
   border: solid #ecca16 0px;
   transition: border-width 0.3s ease;
+
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .gallery-content img {
@@ -121,15 +128,15 @@
   border-radius: 0.5em;
   z-index: 10;
   transition: background-color 0.3s ease; /* Smooth hover effect */
-white-space: nowrap;
+  white-space: nowrap;
 }
 
-.gallery-content > div:hover .gallery-button {
+.gallery-content > .gallery-card:hover .gallery-button {
   background-color: #7a0f0f
 }
 
 
-.gallery-content > div:hover {
+.gallery-content > .gallery-card:hover {
   border: solid #ecca16 1em;
 }
 
@@ -146,7 +153,7 @@ white-space: nowrap;
     height: auto;
   }
 
-  .gallery-content > div {
+  .gallery-content > .gallery-card {
     flex: 0 0 auto;
     height: 50vh; /* Give each item a fixed height */
   }

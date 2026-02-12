@@ -24,12 +24,24 @@ html, body {
 
 
 body {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #b11919;
-    opacity: 0;
-    transition: opacity .5s; /* The transition effect */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #b11919;
+  opacity: 1;
+  transition: opacity .5s; /* The transition effect */
+}
+
+html.js body {
+  opacity: 0;
+}
+
+html.js body.is-loaded {
+  opacity: 1;
+}
+
+body.is-transitioning {
+  opacity: 0;
 }
 
 .center {
@@ -118,7 +130,7 @@ li span {
 }
 
 
-.top-bar-right span {
+.top-bar-right .nav-link {
     color: #fff;
     text-decoration: none;
     display: block;
@@ -127,9 +139,13 @@ li span {
     font-size: 125%;
     padding: 0.5em;
 
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
 }
 
-.top-bar-right span:hover {
+.top-bar-right .nav-link:hover {
     background-color: #5a0b0b50;
 }
 
@@ -185,6 +201,10 @@ li span {
 }
 
 .list-wrapper li {
+  list-style: none;
+}
+
+.list-wrapper .menu-link {
     padding: 0.5em;
     margin: 1em;
     text-align: center;
@@ -199,6 +219,11 @@ li span {
       background-color 0.3s ease,
       color 0.3s ease;
     font-weight: bold;
+
+    background: none;
+    border: 0;
+    width: 100%;
+    cursor: pointer;
 }
 
 
@@ -206,6 +231,8 @@ li span {
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 1em;
+  background: none;
+  border: 0;
 }
 
 #logo-btn:hover {
@@ -213,13 +240,32 @@ li span {
 
 }
 
-.list-wrapper li:hover {
+.list-wrapper .menu-link:hover {
   background-color: #00000044;
   cursor: pointer;
 }
 
-.list-wrapper li:active {
+.list-wrapper .menu-link:active {
   background-color: #0000006c;
+}
+
+button,
+[role="button"] {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid #ecca16;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
@@ -347,6 +393,8 @@ li span {
   height: 3em;
   display: table-cell;
   float: left;
+  background: none;
+  border: 0;
 }
 
 .footer-socials button img {

@@ -47,7 +47,7 @@ title: Equity
     <div class="header-section red">
         <div class="header-content">
             <div class="image-container">
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/grad00.jpg" style="object-position: 50% 12.5%;">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/grad00.jpg" alt="Graduation ceremony" style="object-position: 50% 12.5%;">
             </div>
             <div class="title-container">
                 <div class="line-text">
@@ -73,30 +73,30 @@ title: Equity
     <div class="category-section">
         <div class="category-content">
             <div class="category-box closed">
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-graduation-cap fa-bounce"></i>
                     <h2>Equal Access to Rigorous Academics.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
-                        <li>Keep all Collegeboard (AP, PSAT, SAT), and IB exams free.</li>
-                        <li>Ensure extended time accommodations, such as 504 and IEP plans are strictly enforced.</li>
+                        <li>Keep all College Board (AP, PSAT, SAT) and IB exams free.</li>
+                        <li>Ensure extended time accommodations, such as 504 and IEP plans, are strictly enforced.</li>
                         <li>Guarantee baseline access across ALL MCPS secondary schools to functional technology, textbooks, and lab materials.</li>
-                        <li>Translate MCPS material in numerous more languages to reflect the diversity of our county.</li>
+                        <li>Translate MCPS materials into more languages to reflect the diversity of our county.</li>
                         <li>Address instances of disparities in suspensions and referrals.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="category-box closed">
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-person-chalkboard fa-bounce"></i>
                     <h2>Equity in Programs and Grading.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
                         <li>Ensure countywide clarity on grading practices to prevent inequitable policies in schools.</li>
-                        <li>Continue to conduct several magnet program studies.</li>
+                        <li>Continue to conduct magnet program studies.</li>
                         <li>Keep special and nontraditional schools in MCPS adequately funded.</li>
                     </ul>
                 </div>
@@ -111,9 +111,21 @@ title: Equity
     <script>
         function category_btn_click(element) {
             if (element.classList.contains("open")) {
-                element.className = "category-box closed"
+                element.className = "category-box closed";
             } else {
-                element.className = "category-box open"
+                element.className = "category-box open";
+            }
+
+            var button = element.querySelector(".button-container");
+            var text = element.querySelector(".text-container");
+            var isOpen = element.classList.contains("open");
+
+            if (button) {
+                button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            }
+
+            if (text) {
+                text.setAttribute("aria-hidden", isOpen ? "false" : "true");
             }
         }
     </script>

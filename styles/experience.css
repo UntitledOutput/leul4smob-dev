@@ -63,7 +63,7 @@
 
 
 
-.actiivty-section {
+.activity-section {
   background-color: var(--secondary-color);
   width: 100%;
   height: fit-content;
@@ -172,6 +172,8 @@
     color: var(--secondary-color);
 
     cursor: pointer;
+    background: none;
+    font: inherit;
 
     transition: 
         0.5s background-color ease,

@@ -6,29 +6,33 @@
 <div class="top-bar-left">
     <ul>
         <li class="menu-text show-on-small" style="padding: 0;">
-            <button id="logo-btn" onclick='link("/")'><img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png"></button>
+            <button id="logo-btn" type="button" aria-label="Go to home" onclick='link("/")'>
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png" alt="Leul 4 SMOB logo">
+            </button>
         </li>
          <li class="menu-text hide-on-small" style="padding: 0;">
-            <button id="logo-btn" onclick="logo_btn_click()"><img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png"></button>
+            <button id="logo-btn" type="button" aria-label="Open menu" onclick="logo_btn_click()">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/sticker.png" alt="Leul 4 SMOB logo">
+            </button>
         </li>
     </ul>
 </div>
 <div class="top-bar-right">
     <ul>
         <li class="hide-on-small">
-            <span onclick = 'link("/")'>Home</span>
+            <button class="nav-link" type="button" onclick='link("/")'>Home</button>
         </li>        
         <li class="hide-on-small">
-            <span onclick = 'link("/policy")'>Platform</span>
+            <button class="nav-link" type="button" onclick='link("/policy")'>Platform</button>
         </li>
         <li class="hide-on-small">
-            <span onclick = 'link("/meet-leul")'>Meet Leul</span>
+            <button class="nav-link" type="button" onclick='link("/meet-leul")'>Meet Leul</button>
         </li>
         <li class="hide-on-small">
-            <span onclick = 'link("/experience")'>Experience</span>
+            <button class="nav-link" type="button" onclick='link("/experience")'>Experience</button>
         </li>
         <li class="show-on-small">
-            <button id="logo-btn" onclick="logo_btn_click()"><i class="fa-solid fa-bars"></i></button>
+            <button id="logo-btn" type="button" aria-label="Open menu" onclick="logo_btn_click()"><i class="fa-solid fa-bars"></i></button>
         </li>
     </ul>
 </div>
@@ -39,11 +43,21 @@
 <div class="fullscreen-container">
 <div class="list-wrapper">
     <ul>
-        <li onclick="close_fullscreen()">Close</li>
-        <li onclick='link("/")'>Home</li>
-        <li onclick='link("/policy")'>Platform</li>
-        <li onclick='link("/meet-leul")'>Meet Leul</li>
-        <li onclick='link("/experience")'>Experience</li>
+        <li>
+            <button class="menu-link" type="button" onclick="close_fullscreen()">Close</button>
+        </li>
+        <li>
+            <button class="menu-link" type="button" onclick='link("/")'>Home</button>
+        </li>
+        <li>
+            <button class="menu-link" type="button" onclick='link("/policy")'>Platform</button>
+        </li>
+        <li>
+            <button class="menu-link" type="button" onclick='link("/meet-leul")'>Meet Leul</button>
+        </li>
+        <li>
+            <button class="menu-link" type="button" onclick='link("/experience")'>Experience</button>
+        </li>
     </ul>
 </div>
 </div>

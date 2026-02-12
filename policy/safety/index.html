@@ -47,7 +47,7 @@ title: Safety
     <div class="header-section red">
         <div class="header-content">
             <div class="image-container">
-                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/safety00.jpg" style="object-position: 50% 50%;">
+                <img src="https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/photos/safety00.jpg" alt="Students supporting each other" style="object-position: 50% 50%;">
             </div>
             <div class="title-container">
                 <div class="line-text">
@@ -73,30 +73,30 @@ title: Safety
     <div class="category-section">
         <div class="category-content">
             <div class="category-box closed">
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-hand-fist fa-bounce"></i>
                     <h2>Bullying Prevention.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
                         <li>Reform anti-bullying enforcement in MCPS and provide annual public data on bullying incidents and how they were resolved.</li>
                         <li>Standardize an online countywide reporting system to serve as an alternative to the Bullying, Harassment, or Intimidation Reporting Form.</li>
                         <li>Eliminate policies that may show leniency towards bullying.</li>
-                        <li>Train staff more thoroughly in de-escalation and practicing restorative approaches to students.</li>
+                        <li>Train staff more thoroughly in de-escalation and restorative practices with students.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="category-box closed">
-                <div class="button-container" onclick="category_btn_click(this.parentElement)">
+                <button class="button-container" type="button" aria-expanded="false" onclick="category_btn_click(this.parentElement)">
                     <i class="fa-solid fa-spa fa-bounce"></i>
                     <h2>Student Wellness.</h2>
-                </div>
-                <div class="text-container">
+                </button>
+                <div class="text-container" aria-hidden="true">
                     <ul>
-                        <li>Have wellness centers implemented in all middle and high schools throughout MCPS.</li>
+                        <li>Implement wellness centers in all middle and high schools throughout MCPS.</li>
                         <li>Allow all middle and high school students to use their cellular devices during lunch.</li>
-                        <li>Create a stronger transition support for middle schoolers into high school.</li>
+                        <li>Create stronger transition support for middle schoolers entering high school.</li>
                         <li>Provide universal access to academic recovery options, free of stigma.</li>
                     </ul>
                 </div>
@@ -110,9 +110,21 @@ title: Safety
     <script>
         function category_btn_click(element) {
             if (element.classList.contains("open")) {
-                element.className = "category-box closed"
+                element.className = "category-box closed";
             } else {
-                element.className = "category-box open"
+                element.className = "category-box open";
+            }
+
+            var button = element.querySelector(".button-container");
+            var text = element.querySelector(".text-container");
+            var isOpen = element.classList.contains("open");
+
+            if (button) {
+                button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            }
+
+            if (text) {
+                text.setAttribute("aria-hidden", isOpen ? "false" : "true");
             }
         }
     </script>
