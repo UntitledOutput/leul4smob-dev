@@ -33,17 +33,14 @@ function lerpColor(color1, color2, amount) {
 
 var countDownDate = new Date(countdown_date).getTime();
 //countDownDate = new Date("Dec 31, 2025 00:30:00").getTime();
+var checkCounter = 0;
 
 function check() {
+    checkCounter++;
 
-    const countdown = document.body.querySelector(".countdown-container");
-
-    if (countdown == null) {
-        return
-    }
-
+    
     var now = new Date().getTime();
-    var grad_start = new Date("Dec 31, 2025 00:00:00").getTime();
+    var grad_start = new Date("Apr 20, 2026 00:00:00").getTime();
 
     
     var distance = countDownDate - now;
@@ -51,12 +48,8 @@ function check() {
     if (progress > 1)
         progress = 1
 
-
-
-
-    countdown.style.backgroundColor = lerpColor("rgb(0,0,0)", "#b11919", progress)
-    document.getElementById("center-text").style.color = lerpColor("rgb(255,255,255)", "#ecca16", progress)
-    document.getElementById("center-number").style.color = lerpColor("rgb(255,255,255)", "#ecca16", progress)
+    document.getElementById("center-text").style.color = lerpColor("rgb(255,255,255)", "#ecca16", (Math.sin(now/250)*0.5+0.5)*progress)
+    //document.getElementById("center-number").style.color = lerpColor("rgb(255,255,255)", "#ecca16", progress)
 
 
 
@@ -66,9 +59,16 @@ function check() {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    var ct = document.getElementById("center-text")
+
+    document.getElementById("center-text").innerHTML = "TIME TO VOTE!! VOTE FOR LEUL DAWIT (that's me!!) AS YOUR SMOB IN "
     
-    document.getElementById("center-text").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
+    //ct.innerHTML = "aaaaaaaaaaaaa"
+
+    document.getElementById("center-text").innerHTML += days + "D " + hours + "H "+ minutes + "M " + seconds + "S &nbsp;";
+
+    document.getElementById("center-text-2").innerHTML = ct.innerHTML
+    document.getElementById("center-text-2").style.color = ct.style.color
 
     
     if (distance < 0) {
@@ -93,8 +93,9 @@ function check() {
 
         }
     }
+
 }
 
 check()
 
-var x = setInterval(check, 1000);
+var x = setInterval(check, 1);

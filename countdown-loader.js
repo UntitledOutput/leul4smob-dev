@@ -2,7 +2,7 @@
 ---
 
 
-var countdown_date = "Jan 7, 2026 19:30:00";
+var countdown_date = "Apr 20, 2026 13:50:00";
 
 //countdown_date = new Date(new Date().getTime() + 3000)
 

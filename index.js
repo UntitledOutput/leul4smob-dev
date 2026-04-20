@@ -75,6 +75,26 @@ function link(url) {
   transitionToPage(targetUrl);
 }
 
+async function test_insta() {
+  if (navigator.share) {
+    try {
+      // Fetch the image as a blob
+      const response = await fetch( "{{ '/res/posts/northwood.png?' | absolute_url }}" );
+      const blob = await response.blob();
+      const file = new File([blob], "story.png", { type: "image/png" });
+
+      // Share using native mechanism
+      await navigator.share({
+        files: [file],
+        title: 'Share to Story',
+      });
+    } catch (error) {
+      console.error('Error sharing:', error);
+    }
+  } else {
+    alert('Share API not supported in this browser.');
+  }
+}
 
 window.transitionToPage = function(href) {
   close_fullscreen();
