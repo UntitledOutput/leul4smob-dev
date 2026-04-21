@@ -71,6 +71,7 @@ const high_schools = [
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const baseurl = "{{ site.baseurl }}";
     console.log(window.location.pathname)
     // check pathname
 
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (baseurl && path.startsWith(baseurl)) {
     // Remove the baseurl prefix
-    path = path.substring(baseurl.length);
+        path = path.substring(baseurl.length);
     }
 
 
