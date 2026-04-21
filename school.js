@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const clone = template.cloneNode(true);
 
-        clone.querySelector("img").src = "/res/school/icons/"+school_id+".png"
+        clone.querySelector("img").src = "https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/school/icons/"+school_id+".png"
         clone.querySelector("img").onclick = function() {
             link('/repost/prompt/?school='+school_id)
         }

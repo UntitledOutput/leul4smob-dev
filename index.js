@@ -154,7 +154,7 @@ async function shareImage() {
 
       const school = urlParams.get('school') || '';
 
-      const url = "{{ '/res/school/posts/' | absolute_url }}" + school + ".png";
+      const url = "https://cdn.jsdelivr.net/gh/UntitledOutput/leul4smob-dev@main/res/school/posts/" + school + ".png";
 
       console.log(url)
 
