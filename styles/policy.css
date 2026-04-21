@@ -24,10 +24,6 @@
     cursor: pointer;
     min-height: 0;
 
-  background: none;
-  border: 0;
-  padding: 0;
-  font: inherit;
 }
 
 .pillar-item h1 {
