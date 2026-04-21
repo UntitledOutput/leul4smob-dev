@@ -71,7 +71,7 @@ const high_schools = [
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const baseurl = "{{ site.baseurl }}";
+
     console.log(window.location.pathname)
     // check pathname
 
