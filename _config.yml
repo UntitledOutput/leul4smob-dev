@@ -6,3 +6,8 @@ exclude:
   - Gemfile.lock
   - README.md
   - .jekyll-cache
+  - gen.py
+  - repost/template/
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"

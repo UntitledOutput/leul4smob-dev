@@ -10,6 +10,10 @@
   white-space: nowrap;
   overflow: hidden;
   user-select: none;
+
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 
 .marquee-track {
@@ -18,14 +22,10 @@
   animation: scroll-left 30s linear infinite; /* Infinite loop */
 }
 
-/* Pause animation on hover */
-.marquee-track:hover {
-  animation-play-state: paused;
-}
 
 @keyframes scroll-left {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); } /* Move by half to reset seamlessly */
+  to { transform: translateX(-25%); } /* Move by half to reset seamlessly */
 }
 
 h1 {

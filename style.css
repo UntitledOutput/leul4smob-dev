@@ -96,6 +96,10 @@ li span {
     box-shadow: 0 2em 2em rgba(0,0,0,0.25);
 }
 
+.tdiv-top {
+
+    position: fixed; /* or fixed if you want it to stay at top while scrolling */
+}
 .top-bar-left ul,
 .top-bar-right ul {
     list-style: none;
@@ -602,11 +606,79 @@ button,
   justify-self: center;
 }
 
+.school-section {
+  padding: 10vw;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-sizing: border-box; /* Include padding in height calculation */
+  display: flex; /* Flexbox is the most reliable method */
+}
+
 .school-content {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: dodgerblue;
-  padding: 10px;
+  gap: 3em;
+  grid-auto-rows: 30vh;
+  height: auto;
+}
+
+.school-content .school-container {
+  flex-grow: 1;      /* Allows child to fill available space */
+  display: flex;     /* Makes the child a flex container for grandchildren */
+  flex-direction: row; /* Stacks grandchildren vertically */
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.school-container img {
+
+  object-fit: contain;
+  height: 75%;
+  width: 100%;
+
+  background-color: darkred;
+  padding: 1em;
+  border-radius: 1em;
+
+
+}
+
+.school-container h2 {
+  height: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  height: 25%;
+  font-size: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.school-container:hover {
+  transform: scale(1.05);
+}
+
+.vote-button {
+  background-color: var(--primary-color);
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 3.5vw;
+  width: 100%;
+  cursor: pointer;
+  animation: pulse-animation 0.5s infinite;
+  user-select: none;
+}
+
+
+@keyframes pulse-animation {
+  0% { transform: scale(1);  }
+  50% { transform: scale(1.025); background-color: #e03939; }
+  100% { transform: scale(1); }
 }
 
 @media screen and (min-width: 1200px) {
@@ -645,8 +717,16 @@ button,
     height: auto; /* Allow natural height on mobile */
   }
 
+  .school-content {
+    grid-template-columns: auto;
+  }
+
   .text-content div {
       width: 100%;
+  }
+
+  .vote-button {
+    font-size: 3.5vh;
   }
 
   .text-content div p {

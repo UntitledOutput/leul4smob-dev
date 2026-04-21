@@ -24,6 +24,75 @@ function fetchInto(selector, url) {
     });
 }
 
+var countdown_date = "Apr 22, 2026 07:00:00";
+
+//countdown_date = new Date(new Date().getTime() + 3000)
+
+// Function to dynamically load a CSS file
+function loadCSS(filename) {
+
+    filename = "{{ site.baseurl }}" + filename;
+
+    // Create a new link element
+    var link = document.createElement('link');
+    
+    // Set the attributes for the link element
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = filename;
+    
+    // Append the link element to the HTML head
+    document.head.appendChild(link);
+}
+
+
+
+var countDownDate = new Date(countdown_date).getTime();
+var now = new Date().getTime();
+
+var distance = countDownDate - now;
+
+var seconds = distance / 1000;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+if (seconds > 0) {
+
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('{{ site.baseurl }}/countdown.html')
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(html) {
+                document.body.insertAdjacentHTML('afterbegin', html);
+
+                var script = document.createElement('script');
+                script.src = "{{ '/countdown.js?' | absolute_url }}";
+                document.body.appendChild(script);
+            });
+    });
+
+    // Call the function to load your CSS file
+    loadCSS('/countdown.css');
+} else if (days > -3) {
+        document.addEventListener("DOMContentLoaded", function() {
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 2500,
+                    spread: 360,
+                    ticks: 100,
+                    gravity: 0,
+                    decay: 0.94,
+                    colors: ["#b11919", "#ecca16"],
+                });
+            }, 1000);
+
+    });
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('is-transitioning');
 
@@ -75,13 +144,24 @@ function link(url) {
   transitionToPage(targetUrl);
 }
 
-async function test_insta() {
+async function shareImage() {
   if (navigator.share) {
     try {
+      const queryString = window.location.search;
+
+      // 2. Initialize URLSearchParams
+      const urlParams = new URLSearchParams(queryString);
+
+      const school = urlParams.get('school') || '';
+
+      const url = "{{ '/res/school/posts/' | absolute_url }}" + school + ".png";
+
+      console.log(url)
+
       // Fetch the image as a blob
-      const response = await fetch( "{{ '/res/posts/northwood.png?' | absolute_url }}" );
+      const response = await fetch( url );
       const blob = await response.blob();
-      const file = new File([blob], "story.png", { type: "image/png" });
+      const file = new File([blob], school + ".png", { tye: "image/png" });
 
       // Share using native mechanism
       await navigator.share({
