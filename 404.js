@@ -73,7 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(window.location.pathname)
     // check pathname
-    school_path = window.location.pathname.substring(1)
+
+    let path = window.location.pathname; // e.g., "/my-project/about/"
+
+    if (baseurl && path.startsWith(baseurl)) {
+    // Remove the baseurl prefix
+    path = path.substring(baseurl.length);
+    }
+
+
+    school_path = path.substring(1)
 
     if (high_schools.includes(school_path) || middle_schools.includes(school_path)) {
         link("/repost/prompt?school="+school_path)
